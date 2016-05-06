@@ -1,117 +1,55 @@
-<html ng-app="login">
+<html ng-app>
 <head>
 
 
-<link rel="stylesheet" type="text/css" href="style1.css">
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js">
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
-
-	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 
 
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 </head>
-<body ng-controller="user_login">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+<body>
 
 
-        <li class="active"><a href="">Home<span class="sr-only">(current)</span></a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+<div>
 
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+               <label for="inputEmail" class="col-lg-2 control-label"></label>
+               <input type="text" class="form-control" placeholder="Email" name="" ="email">
+        
+     
+               <label for="inputpassWord" class="col-lg-2 control-label"></label>
+               <input type="text" class="form-control" placeholder="New password" name="password">
+               <button ng-click="saveuser()">Submit</button>
+  
 
-<div class="container-fluid">
-        <div class='row'>
-
-                      <span class='col-md-3'></span>
-                           <center><h1>Welcome to my business</h1></center>
-                      <span class='col-md-3'></span>
-
-         </div>
-
-<br><br><br><br><br><br><br>
+</div>
+<script>
 
 
+  function login($scope){
 
-<div class='row'>
+    $scope.email = email;
+    $scope.password = password;
+    $scope.mydata = new Firebase("https://torrid-heat-3055.firebaseio.com/");
 
-          <span class='col-md-3'></span>
-           <form class="form-horizontal col-md-6">
+    $scope.saveuser = function(){
+        $scope.myData.push({email:$scope.emai});
+        $scope.email= "";
+        $scope.password ="";
 
+        };
+  };
 
-                   <div class="form-group">
-                           <label for="inputEmail" class="col-lg-2 control-label"></label>
-                           <div class="col-lg-10">
-                             <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="email">
-                           </div>
-                   </div>
-                   <div class="form-group">
-                           <label for="inputpassWord" class="col-lg-2 control-label"></label>
-                           <div class="col-lg-10">
-                             <input type="text" class="form-control" id="inputPassword" placeholder="New password" ng-model="password">
-                           </div>
-                   </div>
-
-                   <div class="form-group">
-                           <div class="col-lg-10 col-lg-offset-2">
-                           <button type="submit" class="btn btn-primary btn-lg" ng-click="saveuser()">Submit</button>
-                     </div>
-
-
-                   </div>
-
-           </form>
-           <span class='col-md-3'> 
-           Email: {{email}} <br />
-           PW:    {{password}}
-
-           </span>
-   </div>
-<script> 
-	function user_login($scope){
-
-		$scope.email= "";
-		$scope.password ="";
-
-		$scope.myData = new Firebase("https://torrid-heat-3055.firebaseio.com/");
-
-		$scope.saveuser = function(){
-
-			$scope.myData.push({email:$scope.emai});
-			$scope.email= "";
-			$scope.password ="";
-
-		};
-
-	};
 
 
 </script>
 
-
-
-
-
 </body>
 </html>
+
+
+
+
