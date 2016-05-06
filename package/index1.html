@@ -1,8 +1,5 @@
-<html ng-app>
+<html>
 <head>
-
-
-
 
 <!-- AngularJS -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -14,34 +11,39 @@
 <body>
 
 
-<div>
+<div ng-app='myApp' ng-controller="myCtrl">
 
                <label for="inputEmail" class="col-lg-2 control-label"></label>
-               <input type="text" class="form-control" placeholder="Email" name="" ="email">
+               <input type="text" class="form-control" placeholder="Email" ng-model="email">
         
      
                <label for="inputpassWord" class="col-lg-2 control-label"></label>
-               <input type="text" class="form-control" placeholder="New password" name="password">
-               <button ng-click="saveuser()">Submit</button>
+               <input type="text" class="form-control" placeholder="New password" ng-model="password">
+               <button ng-click="go()">Submit</button>
   
 
 </div>
 <script>
 
+var app = angular.module('module', []);
+$scope.go = function(){
+app.controller('myCtrl', ['', function($scope){
 
-  function login($scope){
+  $scope.email = email;
+  $scope.password = password;
+  $scope.base = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
 
-    $scope.email = email;
-    $scope.password = password;
-    $scope.mydata = new Firebase("https://torrid-heat-3055.firebaseio.com/");
+  base.createUser({email: email, password: password},);
 
-    $scope.saveuser = function(){
-        $scope.myData.push({email:$scope.emai});
-        $scope.email= "";
-        $scope.password ="";
+};
 
-        };
-  };
+}]);
+
+
+
+
+
+
 
 
 
