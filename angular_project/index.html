@@ -9,14 +9,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"></script>
   </head>
   <body ng-app="myApp">
-    <div class="main" ng-controller="MainController">
+    <div class="main" ng-controller="MainController" >
       <div class="container">
 
         <h1>{{ title }}</h1>
-        <h1>this should be working..</h1>
         <h2>{{ promo }}</h2>
 
+        
+        <div class="col-md-6"> 
+         <form>
+                      <fieldset class="form-group" ng-model="user.name">
+                        <label >Name</label>
+                        <input class="form-control" placeholder="Enter name">
+                      </fieldset>
+
+                      <fieldset class="form-group" ng-model="user.email">
+                        <label >Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <small class="text-muted">We'll never share your email with anyone else.</small>
+                      </fieldset>
+
+                      <fieldset class="form-group" ng-model="user.password">
+                        <label f>Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </fieldset>
+                     
+
+
+
+                      <button  class="btn btn-primary" ng-click="hello()">Submit</button>
+
+                         <div ng-repeat="login in logins">{{ login }}</div>
+          </form>
+
+
+
+
       </div>
+    </div>
     </div>
 
   
