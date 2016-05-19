@@ -7,46 +7,43 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.min.js"></script>
+
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
   </head>
+
+  
   <body ng-app="myApp">
     <div class="main" ng-controller="MainController" >
+
+
       <div class="container">
 
+        <h1>Alston</h1>
         <h1>{{ title }}</h1>
         <h2>{{ promo }}</h2>
 
         
         <div class="col-md-6"> 
          <form>
-                      <fieldset class="form-group" ng-model="user.name">
-                        <label >Name</label>
-                        <input class="form-control" placeholder="Enter name">
-                      </fieldset>
 
-                      <fieldset class="form-group" ng-model="user.email">
-                        <label >Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        <small class="text-muted">We'll never share your email with anyone else.</small>
-                      </fieldset>
+          
+          <input class="form-control" placeholder="Enter name" ng-model="userData.name">
+           <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model="userData.email">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="userData.password">
 
-                      <fieldset class="form-group" ng-model="user.password">
-                        <label f>Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                      </fieldset>
+              <button  class="btn btn-primary" ng-click="saveData()">Submit</button>
+
+              {{userData.Name}}
+
+         </form>
                      
 
-
-
-                      <button  class="btn btn-primary" ng-click="hello()">Submit</button>
-
-                         <div ng-repeat="login in logins">{{ login }}</div>
-          </form>
-
-
-
-
       </div>
-    </div>
+     </div>
     </div>
 
   
