@@ -18,7 +18,7 @@ $scope.saveData = function(){
 		
 		window.alert("just created user");
 
-		var ref = new Firebase("https://torrid-heat-3055.firebaseio.com/");
+		var ref = new Firebase("https://torrid-heat-3055.fi rebaseio.com/");
 	 	ref.createUser({email: $scope.userData.email, 
 	 		password: $scope.userData.password},
 	 		function(error, userData) {
